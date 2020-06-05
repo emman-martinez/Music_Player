@@ -1,1 +1,80 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+body {
+    font-family: 'Lato', sans-serif; 
+    background-image: linear-gradient(
+        0deg,
+        rgba(247, 247, 247, 1) 23.8%,
+        rgba(252, 221, 221, 1) 92%
+    );
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.music-container {
+    background-color: $claro;
+    border-radius: 15px;
+    box-shadow: $boxShadow;
+    display: flex;
+    padding: 20px 30px;
+    position: relative;
+    margin: 100px 0;
+    z-index: 10;
+    .img-container {
+        position: relative;
+        width: 110px;
+        img {
+            border-radius: 50%;
+            object-fit: cover;
+            height: 110px;
+            width: inherit;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            animation: rotate 3s linear infinite;
+            animation-play-state: paused;
+        }
+    }
+    &.play {
+        .img-container img {
+            animation-play-state: running;
+        }
+    }
+    .navigation {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1;
+    }
+}
+
+.action-btn {
+    background-color: $claro;
+    border: 0;
+    color: #DFDBDF;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 10px;
+    margin: 0 20px;
+    outline: none;
+    &:active {
+        transform: scale(0.90);
+    }
+    &.action-btn-big {
+        color: #CDC2D0;
+        font-size: 30px;
+    }
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
